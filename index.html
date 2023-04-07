@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Habit Tracker</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body bgcolor=#070707>
+    <div id="habit-list-container">
+        
+        <ul id="habit-list"></ul>
+        <div class="add-habit">
+            <input type="text" id="habit-input" placeholder="Enter a new habit">
+            <button class="add-habit-button" id="add-habit-button">Add</button>
+        </div>
+
+        <button id="clear-habits" class="remove-habits-button">Clear Habits</button>
+    </div>
+    
+    <script>
+        // Retrieve existing habits from local storage or create an empty array
+        let habits = JSON.parse(localStorage.getItem('habits')) || [];
+
+        // Get the habit list and add each habit to the list
+        const habitList = document.getElementById('habit-list');
+        renderHabitList();
+
+        // Remove all existing habits
+        const removeHabitsButton = document.getElementById('clear-habits');
+        removeHabitsButton.addEventListener('click', () => {
+            localStorage.clear();
+            habits = [];
+            habitList.innerHTML = '';
+        });
+        
+        // Get the habit input field and add a click event listener to the add button
+        const habitInput = document.getElementById('habit-input');
+        const addHabitButton = document.getElementById('add-habit-button');
+        addHabitButton.addEventListener('click', () => {
+          // Get the habit text from the input field
+          addHabit();
+        });
+        
+        const storedDate = localStorage.getItem('currentDate');
+        const currentDate = new Date().toLocaleDateString();
+        if (storedDate !== currentDate) {
+            const habitList = document.querySelector('.habit-list');
+            const habits = habitList.querySelectorAll('li');
+  
+            habits.forEach((habit) => {
+                habit.completed = false;
+                habit.classList.remove('completed');
+            });
+  
+        // Update the stored date in local storage to the current date
+        localStorage.setItem('currentDate', currentDate);
+        }
+
+
+        function addHabit() {
+            const habitText = habitInput.value.trim();
+
+            if (habitText !== '') {
+             const newHabit = {
+                text: habitText,
+                completed: false // new property indicating completion status
+            };
+            habits.push(newHabit);
+
+            // Store updated habits array in local storage
+            localStorage.setItem('habits', JSON.stringify(habits));
+
+            // Render updated habit list
+            renderHabitList();
+            }
+        }       
+
+        function renderHabitList() {
+            habitList.innerHTML = '';
+
+            for (let i = 0; i < habits.length; i++) {
+                const habit = habits[i];
+                const habitItem = document.createElement('li');
+                habitItem.textContent = habit.text;
+                if (habit.completed) { // apply completed styling if habit is marked as completed
+                    habitItem.classList.add('completed');
+                }
+                habitItem.addEventListener('click', function() {
+                    habit.completed = !habit.completed; // toggle completion status on click
+                    localStorage.setItem('habits', JSON.stringify(habits));
+                    renderHabitList();
+                });
+                habitList.appendChild(habitItem);
+            }
+        }
+
+        // Function to update the habits array in local storage
+        function updateLocalStorage() {
+          localStorage.setItem('habits', JSON.stringify(habits));
+        }
+
+      </script>
+  </body>
+</html>
