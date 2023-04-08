@@ -27,6 +27,27 @@ body {
     user-select: none;
   }
 
+  header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 1.25rem;
+    font-family: Arial;
+    color: slategrey;
+    border-bottom: 1px solid slategrey;
+  }
+
+  p {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: -1rem;
+    margin-bottom: 1.25rem;
+    font-size: 1rem;
+    font-family: Arial;
+    color: slategrey;
+  }
+
   li:not(.completed):hover {
     background-color: #131313;
   }
@@ -95,27 +116,6 @@ body {
     border: 1px solid #0f0f0f;
   }
 
-  header {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    font-size: 1.25rem;
-    font-family: Arial;
-    color: slategrey;
-    border-bottom: 1px solid slategrey;
-  }
-
-  p {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: -1rem;
-    margin-bottom: 1.25rem;
-    font-size: 1rem;
-    font-family: Arial;
-    color: slategrey;
-  }
-
   #habit-list-container {
     display: flex;
     flex-direction: column;
@@ -166,4 +166,12 @@ body {
     60% { -webkit-transform: translate(0px, 2px) rotate(0deg); }
     80% { -webkit-transform: translate(1px, -1px) rotate(1deg); }
     100% { -webkit-transform: translate(-1px, 2px) rotate(-1deg); }
+  }
+
+  /* Different Screen Size Stuff*/
+
+  @media (max-width: 1280px) {
+    h1 {
+      font-size: 1rem;
+    }
   }
