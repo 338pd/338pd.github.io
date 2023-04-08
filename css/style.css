@@ -95,11 +95,38 @@ body {
     border: 1px solid #0f0f0f;
   }
 
+  header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 1.25rem;
+    font-family: Arial;
+    color: slategrey;
+    border-bottom: 1px solid slategrey;
+  }
+
+  p {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: -1rem;
+    margin-bottom: 1.25rem;
+    font-size: 1rem;
+    font-family: Arial;
+    color: slategrey;
+  }
+
   #habit-list-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-top: 2rem;
+  }
+
+  .wrapper {
+    display: grid;
+    grid-template-rows: auto 1fr;
+    height: 100vh;
   }
 
   #completion {
@@ -113,7 +140,6 @@ body {
   }
   
   /* Delete Icon Stuff */
-
   #habit-list-container li div i {
     position: absolute;
     right: .25rem;
@@ -129,4 +155,15 @@ body {
 
   #habit-list-container li:not(.completed) div i {
     color: lightslategray;
+  }
+
+  /* Animation Stuff */
+
+  @-webkit-keyframes shake {
+    0% { -webkit-transform: translate(2px, 1px) rotate(0deg); } 
+    20% { -webkit-transform: translate(-1px, -2px) rotate(-1deg); }
+    40% { -webkit-transform: translate(-3px, 0px) rotate(1deg); }
+    60% { -webkit-transform: translate(0px, 2px) rotate(0deg); }
+    80% { -webkit-transform: translate(1px, -1px) rotate(1deg); }
+    100% { -webkit-transform: translate(-1px, 2px) rotate(-1deg); }
   }

@@ -11,16 +11,20 @@
 </head>
 
 <body bgcolor=#070707>
-    <div id="habit-list-container">
-
-        <ul id="habit-list"></ul>
-        <div class="add-habit">
-            <input type="text" id="habit-input" placeholder="New Habit" maxlength=18>
-            <button class="add-habit-button" id="add-habit-button">Add</button>
+    <div class="wrapper">
+        <header>
+            <h1>Simple Habit Tracker</h1>
+            <p>Resets Daily at Midnight</p>
+        </header>
+        <div id="habit-list-container">
+            <ul id="habit-list"></ul>
+            <div class="add-habit">
+                <input type="text" id="habit-input" placeholder="New Habit" maxlength=18>
+                <button class="add-habit-button" id="add-habit-button">Add</button>
+            </div>
+            <button id="clear-habits" class="remove-habits-button">Clear Habits</button>
+            <progress id="completion" value="0" max="100"></progress>
         </div>
-
-        <button id="clear-habits" class="remove-habits-button">Clear Habits</button>
-        <progress id="completion" value="0" max="100"></progress>
     </div>
     <script>
         // Retrieve existing habits from local storage or create an empty array
@@ -95,7 +99,6 @@
 
         function renderHabitList() {
             habitList.innerHTML = '';
-
             for (let i = 0; i < habits.length; i++) {
                 const habit = habits[i];
                 const habitItem = document.createElement('li');
@@ -123,11 +126,8 @@
                     updateLocalStorage();
                     renderHabitList();
                 });
-
-
                 habitList.appendChild(habitItem);
             }
-
             renderProgress();
         }
 
