@@ -33,7 +33,7 @@ body {
   }
   
   .add-habit input {
-    margin-top: 7.5px;
+    margin-top: 1rem;
     padding: 0.5rem;
     font-size: 1rem;
     background-color: #0f0f0f;
@@ -44,7 +44,7 @@ body {
   }
   
   .add-habit-button {
-    margin-top: 7.5px;
+    margin-top: 1rem;
     margin-left: .5rem;
     padding: 0.5rem;
     font-size: 1rem;
