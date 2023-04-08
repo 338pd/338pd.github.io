@@ -170,7 +170,7 @@ body {
 
   /* Different Screen Size Stuff*/
 
-  @media (max-width: 1280px) {
+  @media only screen and (max-width: 600px) {
     h1 {
       font-size: 1rem;
     }
