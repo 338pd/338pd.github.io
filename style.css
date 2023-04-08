@@ -78,8 +78,8 @@ body {
 
   .completed {
     background-color: lightslategrey;
-    color: #303030;
-    border: 1px solid #303030
+    color: #0f0f0f;
+    border: 1px solid #0f0f0f;
   }
 
   #habit-list-container {
