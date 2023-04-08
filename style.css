@@ -77,8 +77,9 @@ body {
   }
 
   .completed {
-    background-color: #365e3a;
-    color: black;
+    background-color: lightslategrey;
+    color: #303030;
+    border: 1px solid #303030
   }
 
   #habit-list-container {
