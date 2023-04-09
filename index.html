@@ -45,6 +45,7 @@
                 habit.completed = false;
                 habit.classList.remove('completed');
             });
+            updateLocalStorage();
         }
 
         // Update the stored date in local storage to the current date
@@ -69,7 +70,6 @@
                 addHabit();
             }
         });
-
 
         // Renders progress bar according to amount of completed habits versus total habits.
         function renderProgress() {
