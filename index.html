@@ -27,10 +27,8 @@
         </div>
     </div>
     <script>
-        // Retrieve existing habits from local storage or create an empty array
-        let habits = JSON.parse(localStorage.getItem('habits')) || [];
 
-        // Get the habit list and add each habit to the list
+        let habits = JSON.parse(localStorage.getItem('habits')) || [];
         const habitList = document.getElementById('habit-list');
         renderHabitList();
 
@@ -46,12 +44,15 @@
                 habit.classList.remove('completed');
             });
             updateLocalStorage();
+            renderHabitList();
         }
 
         // Update the stored date in local storage to the current date
         localStorage.setItem('currentDate', currentDate);
 
-        // Remove all existing habits
+        // ------------- EVENT LISTENERS ------------------
+
+        // Habit Remove All
         const removeHabitsButton = document.getElementById('clear-habits');
         removeHabitsButton.addEventListener('click', () => {
             localStorage.clear();
@@ -59,7 +60,7 @@
             habitList.innerHTML = '';
         });
 
-        // Get the habit input field and add a click event listener to the add button
+        // Habit Input
         const habitInput = document.getElementById('habit-input');
         const addHabitButton = document.getElementById('add-habit-button');
         addHabitButton.addEventListener('click', () => {
@@ -70,6 +71,8 @@
                 addHabit();
             }
         });
+
+        // ------------------------------------------------
 
         // Renders progress bar according to amount of completed habits versus total habits.
         function renderProgress() {
