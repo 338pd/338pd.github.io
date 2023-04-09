@@ -64,6 +64,11 @@
         addHabitButton.addEventListener('click', () => {
             addHabit();
         });
+        habitInput.addEventListener("keyup", function (event) {
+            if (event.key === "Enter") {
+                addHabit();
+            }
+        });
 
 
         // Renders progress bar according to amount of completed habits versus total habits.
@@ -137,4 +142,5 @@
         }
     </script>
 </body>
+
 </html>

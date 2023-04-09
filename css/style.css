@@ -94,7 +94,7 @@ body {
   }
 
   .remove-habits-button{
-    margin-top: 1rem;
+    margin-top: 1.5rem;
     padding: 0.5rem;
     font-size: 1rem;
     cursor: pointer;
@@ -129,14 +129,27 @@ body {
     height: 100vh;
   }
 
-  #completion {
-    margin-top: 1rem;
-    width: 250px;
-  }
-
   #habit-list-container li:hover div {
     position: relative;
     padding-right: 20px;
+  }
+
+  /* Progress Bar Stuff */
+  progress {
+    margin-top: 1.5rem;
+    width: 250px;
+    border-radius: 10px;
+    height: 10px;
+  }
+
+  progress::-webkit-progress-bar {
+    background-color: #0f0f0f;
+    border-radius: 10px;
+  }
+
+  progress::-webkit-progress-value {
+    background-color: slategrey;
+    border-radius: 10px;
   }
   
   /* Delete Icon Stuff */
@@ -157,19 +170,7 @@ body {
     color: lightslategray;
   }
 
-  /* Animation Stuff */
-
-  @-webkit-keyframes shake {
-    0% { -webkit-transform: translate(2px, 1px) rotate(0deg); } 
-    20% { -webkit-transform: translate(-1px, -2px) rotate(-1deg); }
-    40% { -webkit-transform: translate(-3px, 0px) rotate(1deg); }
-    60% { -webkit-transform: translate(0px, 2px) rotate(0deg); }
-    80% { -webkit-transform: translate(1px, -1px) rotate(1deg); }
-    100% { -webkit-transform: translate(-1px, 2px) rotate(-1deg); }
-  }
-
   /* Different Screen Size Stuff*/
-
   @media only screen and (max-width: 600px) {
     h1 {
       font-size: 1.5rem;
