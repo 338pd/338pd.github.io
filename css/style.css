@@ -1,178 +1,179 @@
 body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-    padding: 0;
-  }
-  
-  ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    text-align: center;
-  }
-  
-  li {
-    font-size: 1.25rem;
-    font-family: Arial;
-    color:slategrey;
-    margin-bottom: .5rem;
-    border: 1px solid slategrey;
-    padding: 10px;
-    width: 250px;
-    border-radius: 10px;
-    background-color: #0f0f0f;
-    user-select: none;
-  }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+}
 
-  header {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    font-size: 1.25rem;
-    font-family: Arial;
-    color: slategrey;
-    border-bottom: 1px solid slategrey;
-  }
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
 
-  p {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: -1rem;
-    margin-bottom: 1.25rem;
-    font-size: 1rem;
-    font-family: Arial;
-    color: slategrey;
-  }
+li {
+  font-size: 1.25rem;
+  font-family: Arial;
+  color: slategrey;
+  margin-bottom: .5rem;
+  border: 1px solid slategrey;
+  padding: 10px;
+  width: 250px;
+  border-radius: 10px;
+  background-color: #0f0f0f;
+  user-select: none;
+}
 
-  li:not(.completed):hover {
-    background-color: #131313;
-  }
-  
-  li.completed:hover {
-    background-color: lightslategrey;
-  }
-  
-  .add-habit {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 1rem;
-  }
-  
-  .add-habit input {
-    margin-top: 0.5rem;
-    padding: 0.5rem;
-    font-size: 1rem;
-    width: 110%;
-    background-color: #0f0f0f;
-    color: slategrey;
-    border: 1px solid slategrey;
-    border-radius: 10px;
-    text-align: center;
-  }
-  
-  .add-habit-button {
-    margin-top: 0.5rem;
-    margin-left: .5rem;
-    padding: 0.5rem;
-    font-size: 1rem;
-    cursor: pointer;
-    background-color: #0f0f0f;
-    color: slategrey;
-    border: 1px solid slategrey;
-    border-radius: 10px;
-    user-select: none;
-  }
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 1.25rem;
+  font-family: Arial;
+  color: slategrey;
+  border-bottom: 1px solid slategrey;
+}
 
-  .add-habit-button:hover {
-    background-color: #303030;
-    color: ghostwhite;
-  }
+p {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: -1rem;
+  margin-bottom: 1.25rem;
+  font-size: 1rem;
+  font-family: Arial;
+  color: slategrey;
+}
 
-  .remove-habits-button{
-    margin-top: 1.5rem;
-    padding: 0.5rem;
-    font-size: 1rem;
-    cursor: pointer;
-    background-color: #0f0f0f;
-    color: slategrey;
-    border: 1px solid slategrey;
-    border-radius: 10px;
-    user-select: none;
-  } 
+li:not(.completed):hover {
+  background-color: #131313;
+}
 
-  .remove-habits-button:hover{
-    background-color: #303030;
-    color: ghostwhite;
-  }
+li.completed:hover {
+  background-color: lightslategrey;
+}
 
-  .completed {
-    background-color: slategrey;
-    color: #0f0f0f;
-    border: 1px solid #0f0f0f;
-  }
+.add-habit {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+}
 
-  #habit-list-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 2rem;
-  }
+.add-habit input {
+  margin-top: 0.5rem;
+  padding: 0.5rem;
+  font-size: 1rem;
+  width: 110%;
+  background-color: #0f0f0f;
+  color: slategrey;
+  border: 1px solid slategrey;
+  border-radius: 10px;
+  text-align: center;
+}
 
-  .wrapper {
-    display: grid;
-    grid-template-rows: auto 1fr;
-    height: 100vh;
-  }
+.add-habit-button {
+  margin-top: 0.5rem;
+  margin-left: .5rem;
+  padding: 0.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+  background-color: #0f0f0f;
+  color: slategrey;
+  border: 1px solid slategrey;
+  border-radius: 10px;
+  user-select: none;
+}
 
-  #habit-list-container li:hover div {
-    position: relative;
-    padding-right: 20px;
-  }
+.add-habit-button:hover {
+  background-color: #303030;
+  color: ghostwhite;
+}
 
-  /* Progress Bar Stuff */
-  progress {
-    margin-top: 1.5rem;
-    width: 250px;
-    border-radius: 10px;
-    height: 10px;
-  }
+.remove-habits-button {
+  margin-top: 1.5rem;
+  padding: 0.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+  background-color: #0f0f0f;
+  color: slategrey;
+  border: 1px solid slategrey;
+  border-radius: 10px;
+  user-select: none;
+}
 
-  progress::-webkit-progress-bar {
-    background-color: #0f0f0f;
-    border-radius: 10px;
-  }
+.remove-habits-button:hover {
+  background-color: #303030;
+  color: ghostwhite;
+}
 
-  progress::-webkit-progress-value {
-    background-color: slategrey;
-    border-radius: 10px;
-  }
-  
-  /* Delete Icon Stuff */
-  #habit-list-container li div i {
-    position: absolute;
-    right: .25rem;
-    color: #070707;
-    cursor: pointer;
-    font-size: 24px;
-    visibility:hidden
-  }
+.completed {
+  background-color: slategrey;
+  color: #0f0f0f;
+  border: 1px solid #0f0f0f;
+}
 
-  #habit-list-container li:hover div i {
-    visibility: visible;
-  }
+#habit-list-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 2rem;
+}
 
-  #habit-list-container li:not(.completed) div i {
-    color: lightslategray;
-  }
+.wrapper {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  height: 100vh;
+}
 
-  /* Different Screen Size Stuff*/
-  @media only screen and (max-width: 600px) {
-    h1 {
-      font-size: 1.5rem;
-    }
+#habit-list-container li:hover div {
+  position: relative;
+  padding-right: 20px;
+}
+
+/* Progress Bar Stuff */
+progress {
+  margin-top: 1.5rem;
+  width: 250px;
+  border-radius: 10px;
+  height: 10px;
+  margin-bottom: 2rem;
+}
+
+progress::-webkit-progress-bar {
+  background-color: #0f0f0f;
+  border-radius: 10px;
+}
+
+progress::-webkit-progress-value {
+  background-color: slategrey;
+  border-radius: 10px;
+}
+
+/* Delete Icon Stuff */
+#habit-list-container li div i {
+  position: absolute;
+  right: .25rem;
+  color: #070707;
+  cursor: pointer;
+  font-size: 24px;
+  visibility: hidden
+}
+
+#habit-list-container li:hover div i {
+  visibility: visible;
+}
+
+#habit-list-container li:not(.completed) div i {
+  color: lightslategray;
+}
+
+/* Different Screen Size Stuff*/
+@media only screen and (max-width: 600px) {
+  h1 {
+    font-size: 1.5rem;
   }
+}
