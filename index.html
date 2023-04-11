@@ -22,7 +22,10 @@
                 <input type="text" id="habit-input" placeholder="New Habit" maxlength=18>
                 <button class="add-habit-button" id="add-habit-button">Add</button>
             </div>
-            <button id="clear-habits" class="remove-habits-button">Clear Habits</button>
+            <div class="buttons">
+                <button id="clear-habits" class="remove-habits-button">Clear Habits</button>
+                <button id="reset-habits" class="reset-habits-button">Reset Habits</button>
+            </div>
             <progress id="completion" value="0" max="100"></progress>
         </div>
     </div>
@@ -36,15 +39,7 @@
         const storedDate = localStorage.getItem('currentDate');
         const currentDate = new Date().toLocaleDateString();
         if (storedDate !== currentDate) {
-            const habitList = document.querySelector('#habit-list');
-            const habs = habitList.querySelectorAll('li');
-
-            habs.forEach((habit) => {
-                habit.completed = false;
-                habit.classList.remove('completed');
-            });
-            updateLocalStorage();
-            renderHabitList();
+            resetHabits();
         }
 
         // Update the stored date in local storage to the current date
@@ -59,6 +54,11 @@
             habits = [];
             habitList.innerHTML = '';
             renderProgress();
+        });
+
+        const resetHabitsButton = document.getElementById('reset-habits');
+        resetHabitsButton.addEventListener('click', () => {
+            resetHabits();
         });
 
         // Habit Input
@@ -104,6 +104,17 @@
 
                 habitInput.value = "";
             }
+        }
+
+        // Resets all habits to their default state (incomplete)
+        function resetHabits() {
+            habits.forEach((habit) => {
+                if (habit.completed) {
+                    habit.completed = false;
+                }
+            });
+            updateLocalStorage();
+            renderHabitList();
         }
 
         function renderHabitList() {

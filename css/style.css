@@ -94,7 +94,9 @@ li.completed:hover {
 }
 
 .remove-habits-button {
+  display: inline-block;
   margin-top: 1.5rem;
+  margin-right: 1rem;
   padding: 0.5rem;
   font-size: 1rem;
   cursor: pointer;
@@ -106,6 +108,24 @@ li.completed:hover {
 }
 
 .remove-habits-button:hover {
+  background-color: #303030;
+  color: ghostwhite;
+}
+
+.reset-habits-button {
+  display: inline-block;
+  margin-top: 1.5rem;
+  padding: 0.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+  background-color: #0f0f0f;
+  color: slategrey;
+  border: 1px solid slategrey;
+  border-radius: 10px;
+  user-select: none;
+}
+
+.reset-habits-button:hover {
   background-color: #303030;
   color: ghostwhite;
 }
