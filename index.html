@@ -37,10 +37,10 @@
 
         // Check the last accessed date and compare to current date, if they are not equal, reset all habits to incomplete.
         const storedDate = localStorage.getItem('currentDate');
-        const currentDate = new Date().toLocaleDateString();
+        const currentDate = new Date();
         if (storedDate) {
             const lastResetDate = new Date(storedDate);
-            if (currentDate.getDate() !== lastResetDate.getDate() || currentDate.getHours() >= 3) {
+            if (currentDate.toLocaleDateString() !== lastResetDate.toLocaleDateString() || currentDate.getHours() >= 3) {
                 resetHabits();
             }
         }
