@@ -14,7 +14,7 @@
     <div class="wrapper">
         <header>
             <h1>Simple Habit Tracker</h1>
-            <p>Resets Daily at Midnight</p>
+            <p>Resets Daily at 3 A.M.</p>
         </header>
         <div id="habit-list-container">
             <ul id="habit-list"></ul>
@@ -38,8 +38,11 @@
         // Check the last accessed date and compare to current date, if they are not equal, reset all habits to incomplete.
         const storedDate = localStorage.getItem('currentDate');
         const currentDate = new Date().toLocaleDateString();
-        if (storedDate !== currentDate) {
-            resetHabits();
+        if (storedDate) {
+            const lastResetDate = new Date(storedDate);
+            if (currentDate.getDate() !== lastResetDate.getDate() || currentDate.getHours() >= 3) {
+                resetHabits();
+            }
         }
 
         // Update the stored date in local storage to the current date
@@ -117,6 +120,7 @@
             renderHabitList();
         }
 
+        // Renders the habit list and establishes appropriate event listeners. 
         function renderHabitList() {
             habitList.innerHTML = '';
             for (let i = 0; i < habits.length; i++) {
