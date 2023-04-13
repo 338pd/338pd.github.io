@@ -40,13 +40,16 @@
         const currentDate = new Date();
         if (storedDate) {
             const lastResetDate = new Date(storedDate);
-            if (currentDate.toLocaleDateString() !== lastResetDate.toLocaleDateString() || currentDate.getHours() >= 3) {
+            if (currentDate.toLocaleDateString() !== lastResetDate.toLocaleDateString() && currentDate.getHours() >= 3) {
                 resetHabits();
+                localStorage.setItem('currentDate', currentDate);
             }
         }
 
-        // Update the stored date in local storage to the current date
-        localStorage.setItem('currentDate', currentDate);
+        // Update the stored date in local storage to the current date if it does not exist
+        if(localStorage.getItem('currentDate') == null) {
+            localStorage.setItem('currentDate', currentDate);
+        }
 
         // ------------- EVENT LISTENERS ------------------
 
