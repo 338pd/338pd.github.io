@@ -149,11 +149,6 @@ li.completed:hover {
   height: 100vh;
 }
 
-#habit-list-container li:hover div {
-  position: relative;
-  padding-right: 20px;
-}
-
 /* Progress Bar Stuff */
 progress {
   margin-top: 1.5rem;
@@ -164,7 +159,6 @@ progress {
 }
 
 progress::-webkit-progress-bar {
-  background-color: #222222;
   border-radius: 10px;
 }
 
@@ -173,8 +167,16 @@ progress::-webkit-progress-value {
   border-radius: 10px;
 }
 
+#habit-list-container li div {
+  position: relative;
+}
+
+#habit-list-container li:hover div {
+  padding-right: 20px;
+}
+
 /* Delete Icon Stuff */
-#habit-list-container li div i {
+#habit-list-container li div .fa-trash-o {
   position: absolute;
   right: .25rem;
   color: #070707;
@@ -183,13 +185,31 @@ progress::-webkit-progress-value {
   visibility: hidden
 }
 
-#habit-list-container li:hover div i {
+#habit-list-container li:hover div .fa-trash-o {
   visibility: visible;
 }
 
 #habit-list-container li:not(.completed) div i {
   color: lightslategray;
 }
+
+/* Triple Bar Icon */
+#habit-list-container li div .fa-bars {
+  position: absolute;
+  left: 0rem;
+  color: #070707;
+  cursor: pointer;
+  font-size: 24px;
+  cursor: move;
+}
+
+.dragging {
+  position: absolute;
+  z-index: 1000;
+  opacity: 0.5;
+  pointer-events: none;
+}
+
 
 /* Different Screen Size Stuff*/
 @media only screen and (max-width: 600px) {

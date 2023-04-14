@@ -29,12 +29,12 @@
             <progress id="completion" value="0" max="100"></progress>
         </div>
         <div>
-            <p id='version'>V1.5</p>
+            <p id='version'>V1.5D</p>
         </div>
     </div>
     <script>
-
         let habits = JSON.parse(localStorage.getItem('habits')) || [];
+        let dragElement = null;
         const habitList = document.getElementById('habit-list');
         renderHabitList();
 
@@ -50,7 +50,7 @@
         }
 
         // Update the stored date in local storage to the current date if it does not exist
-        if(localStorage.getItem('currentDate') == null) {
+        if (localStorage.getItem('currentDate') == null) {
             localStorage.setItem('currentDate', currentDate);
         }
 
@@ -133,10 +133,21 @@
                 const habit = habits[i];
                 const habitItem = document.createElement('li');
                 const habitContainer = document.createElement('div'); // create a container element for the text and icon
+
+                const textSpan = document.createElement('span');
+                textSpan.textContent = habit.text;
+
+                // Delete Icon
                 const del = document.createElement('i');
                 del.classList.add("fa", "fa-trash-o");
                 habitContainer.appendChild(del); // append the icon to the container element
-                habitContainer.appendChild(document.createTextNode(habit.text));  // set the text content of the container element
+
+                // TBar Icon
+                const tripleBar = document.createElement('i');
+                tripleBar.classList.add("fa", "fa-bars");
+                habitContainer.appendChild(tripleBar);
+
+                habitContainer.appendChild(textSpan);  // set the text content of the container element
                 habitItem.appendChild(habitContainer); // append the container element to the list item
 
                 if (habit.completed) {
@@ -151,14 +162,49 @@
                     renderHabitList();
                 });
 
+                habitItem.draggable = true;
+                habitItem.addEventListener('dragstart', () => {
+                    dragElement = habitItem;
+                });
+
+                habitItem.addEventListener('dragend', () => {
+                    dragElement.classList.remove('dragging');
+                    dragElement = null;
+                    updateHabitsArray();
+                });
+
+                habitItem.addEventListener('dragover', (event) => {
+                    event.preventDefault();
+                    const draggingIndex = Array.from(habitList.children).indexOf(dragElement);
+                    const dropIndex = Array.from(habitList.children).indexOf(habitItem);
+                    if (draggingIndex < dropIndex) {
+                        habitList.insertBefore(dragElement, habitItem.nextSibling);
+                    } else {
+                        habitList.insertBefore(dragElement, habitItem);
+                    }
+                });
+
                 habitItem.addEventListener('click', function () {
                     habit.completed = !habit.completed;
                     updateLocalStorage();
                     renderHabitList();
                 });
+
                 habitList.appendChild(habitItem);
             }
             renderProgress();
+        }
+
+        function updateHabitsArray() {
+            const newHabits = [];
+            const habitItems = document.querySelectorAll('#habit-list li');
+            for (let i = 0; i < habitItems.length; i++) {
+                const habitText = habitItems[i].querySelector('span').textContent;
+                const completed = habitItems[i].classList.contains('completed');
+                newHabits.push({ text: habitText, completed: completed });
+            }
+            habits = newHabits;
+            updateLocalStorage();
         }
 
         // Function to update the habits array in local storage
