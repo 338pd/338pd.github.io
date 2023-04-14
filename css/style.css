@@ -197,11 +197,10 @@ progress::-webkit-progress-value {
 /* Triple Bar Icon */
 #habit-list-container li div .fa-bars {
   position: absolute;
-  left: 0rem;
+  right: 14rem;
   color: #070707;
   cursor: pointer;
   font-size: 24px;
-  cursor: move;
 }
 
 .dragging {
