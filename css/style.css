@@ -15,7 +15,7 @@ ul {
 }
 
 li {
-  font-size: 1.25rem;
+  font-size: 1.1rem;
   font-family: Arial;
   color: slategrey;
   margin-bottom: .5rem;
@@ -173,7 +173,7 @@ progress::-webkit-progress-value {
 }
 
 #habit-list-container li:hover div {
-  padding-right: 20px;
+  padding-right: .25rem;
 }
 
 /* Delete Icon Stuff */
@@ -183,7 +183,8 @@ progress::-webkit-progress-value {
   color: #070707;
   cursor: pointer;
   font-size: 24px;
-  visibility: hidden
+  visibility: hidden;
+  top: -.15rem;
 }
 
 #habit-list-container li:hover div .fa-trash-o {
@@ -198,6 +199,7 @@ progress::-webkit-progress-value {
 #habit-list-container li div .fa-bars {
   position: absolute;
   right: 14rem;
+  top: -.1rem;
   color: #070707;
   cursor: pointer;
   font-size: 24px;
